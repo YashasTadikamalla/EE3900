@@ -148,43 +148,39 @@ i.e,
 \begin{align}
     \label{eq:1}
     h(t)=\begin{cases}
-	t, & t \in \mathbb{Z}^{+} \cup \cbrak{0} \\~\\[-1em]
-	0, & t \in \mathbb{Z}^{-}
+	t, & t \geq 0 \\~\\[-1em]
+	0, & t <0
 	\end{cases}\\
 	\label{eq:2}
 	x(t)=\begin{cases}
-	1, & t \in \mathbb{Z}^{+} \\~\\[-1em]
-	0, & t \in \mathbb{Z}^{-} \cup \cbrak{0}
+	1, & t \geq 1 \\~\\[-1em]
+	0, & t <1
 	\end{cases} 
 \end{align}
 To find: $y(t)$. We know, 
 \begin{align}
-y(t)&=h(t)*x(t)=\displaystyle\sum_{k=-\infty}^{\infty}h(k)x(t-k)\\
-&=\displaystyle\sum_{k=-\infty}^{-1}h(k)x(t-k)+\displaystyle\sum_{k=0}^{\infty}h(k)x(t-k)
+y(t)&=h(t)*x(t)=\int_{-\infty}^{\infty}h(k)x(t-k)dk\\
+&=\int_{-\infty}^{0}h(k)x(t-k)dk+\int_{0}^{\infty}h(k)x(t-k)dk
 \label{eq:def}
 \end{align}
 Substituting \eqref{eq:1} in \eqref{eq:def}, 
 \begin{align}
-y(t)=\displaystyle\sum_{k=0}^{\infty}k\sbrak{x(t-k)}
+y(t)=\int_{0}^{\infty}k\sbrak{x(t-k)}dk
 \end{align}
-From \eqref{eq:2}, we can observe that, $\forall t\leq 0$,
+From \eqref{eq:2}, we can observe that, $\forall t < 1$,
 \begin{align}
 y(t)=0 
 \end{align}
 Also, for $t \geq 1$,
 \begin{align}
-&y(1)=\displaystyle\sum_{k=0}^{\infty}k\sbrak{x(1-k)}=\displaystyle\sum_{k=0}k\\
-&y(2)=\displaystyle\sum_{k=0}^{\infty}k\sbrak{x(2-k)}=\displaystyle\sum_{k=0}^{1}k\\
-&y(3)=\displaystyle\sum_{k=0}^{\infty}k\sbrak{x(3-k)}=\displaystyle\sum_{k=0}^{2}k\\
-&\vdots\\
-&y(t)=\displaystyle\sum_{k=0}^{\infty}k\sbrak{x(t-k)}=\displaystyle\sum_{k=0}^{t-1}k\\
+&y(t)=\int_{0}^{\infty}k\sbrak{x(t-k)}dk=\sbrak{\dfrac{k^{2}}{2}}_{0}^{t-1}\\
 &\therefore y(t)=\begin{cases}
-	\dfrac{t(t-1)}{2}, & t \in \mathbb{Z}^{+} \\~\\[-1em]
-	0, & t \in \mathbb{Z}^{-} \cup \cbrak{0}
+	\dfrac{(t-1)^{2}}{2}, & t \geq 1 \\~\\[-1em]
+	0, & t < 1
 	\end{cases}\\ 
-&\therefore y(t)=\dfrac{t(t-1)}{2}u(t-1)
+&\therefore y(t)=\dfrac{(t-1)^{2}}{2}u(t-1)
 \end{align}
-Option 2 is the correct answer.
+Option 3 is the correct answer.
 
 \begin{figure}[!h]
  \centering
