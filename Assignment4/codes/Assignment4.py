@@ -31,10 +31,13 @@ x_C2B2 = line_gen(C2,B2)
 plt.plot(x_C1B1[0,:],x_C1B1[1,:],x_C1B1[2,:],color='g',label='L1')
 plt.plot(x_C2B2[0,:],x_C2B2[1,:],x_C2B2[2,:],color='b',label='L2')
 plt.legend()
+ax.view_init(-150,60)
 plt.title('$k=\dfrac{-13+\sqrt{205}}{18}$')
 plt.xlabel('$x$')
 plt.ylabel('$y$')
 plt.show()
+
+
 
 fig = plt.figure()
 ax = fig.add_subplot(111,projection='3d')

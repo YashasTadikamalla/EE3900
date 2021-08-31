@@ -155,21 +155,18 @@ For them,
     6}
 \end{align}
 where $\vec{m_{1}},\vec{m_{2}}$ are the respective direction vectors and $\vec{A_{1}},\vec{A_{2}}$ are the respective points through which the lines pass. To find: $k$.\\
-If two lines are coplanar, they must be either parallel or intersecting. If the given lines are parallel, then
+If two lines are coplanar, they must be either parallel or intersecting. If the lines are parallel, the matrix
 \begin{align}
-    \vec{m_{1}}&=\alpha\vec{m_{2}}\\
-    \Rightarrow\myvec{-3\\
-    2k\\
-    2}&=\myvec{3k\alpha\\
-    \alpha\\
-    -5\alpha}\label{eq:1}
+    \myvec{-3 & 2k & 2 \\
+    3k & 1 & -5}
 \end{align}
-From \eqref{eq:1},
+should have $rank=1$.
 \begin{align}
-    \alpha&=2k\\
-    3k\alpha=-3&\Rightarrow \alpha=\dfrac{-1}{k}
+    \Rightarrow \mydet{-3 & 2k \\
+    3k & 1} &=0\\
+    \Rightarrow 6k^{2}+3&=0
 \end{align}
-Clearly, such an $\alpha$ does not exist. Hence, the lines must be intersecting. In that case,
+This is not possible. Hence, the lines must be intersecting. In that case,
 \begin{align}
     \brak{\vec{A_{1}}-\vec{A_{2}}}^{T}\brak{\vec{m_{1}}\times\vec{m_{2}}}=0\label{eq:a}
 \end{align}
