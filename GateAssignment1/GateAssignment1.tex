@@ -226,19 +226,6 @@ Given,
     &h(t)=tu(t)\\
     &x(t)=u(t-1)
 \end{align}
-i.e,
-\begin{align}
-    \label{eq:1}
-    h(t)=\begin{cases}
-	t, & t \geq 0 \\~\\[-1em]
-	0, & t <0
-	\end{cases}\\
-	\label{eq:2}
-	x(t)=\begin{cases}
-	1, & t \geq 1 \\~\\[-1em]
-	0, & t <1
-	\end{cases} 
-\end{align}
 To find: $y(t)$. We know, 
 \begin{align}
 y(t)&=h(t)*x(t)\\
@@ -277,7 +264,20 @@ Further, from \eqref{eq:cuf}, for $c=1$
     \therefore y(t)&=\dfrac{(t-1)^2}{2}u(t-1)
 \end{align}
 Option 3 is the correct answer.
-
+\begin{align}
+    h(t)&=\begin{cases}
+	t, & t \geq 0 \\~\\[-1em]
+	0, & t <0
+	\end{cases}\\
+	x(t)&=\begin{cases}
+	1, & t \geq 1 \\~\\[-1em]
+	0, & t <1
+	\end{cases}\\
+	y(t)&=\begin{cases}
+	\dfrac{(t-1)^2}{2}, & t \geq 1 \\~\\[-1em]
+	0, & t <1
+	\end{cases}
+\end{align}
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\columnwidth]{GateAssignment1(1).png}
