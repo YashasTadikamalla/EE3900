@@ -138,7 +138,7 @@ https://github.com/YashasTadikamalla/EE3900/blob/main/Assignment5/Assignment5.te
 Find the equation of hyperbola with focii \myvec{0\\\pm12} and length of latus rectum 36.
 \section{Solution}
 \begin{theorem}
-The equation of  a conic with directrix $\vec{n}^{\top}\vec{x} = c$, eccentricity $e$ and focus $\vec{F}$ is given by 
+The equation of a conic with directrix $\vec{n}^{\top}\vec{x} = c$, eccentricity $e$ and focus $\vec{F}$ is given by 
 \begin{align}
     \label{eq:conic_quad_form}
     \vec{x}^{\top}\vec{V}\vec{x}+2\vec{u}^{\top}\vec{x}+f=0
@@ -169,22 +169,36 @@ If \eqref{eq:conic_quad_form} represents a hyperbola, the lengths of the semi-ma
 \end{align}
 respectively, where $\lambda_1>0,\lambda_2<0$
 \end{theorem}
+\begin{definition}[Latus rectum]
+The latus rectum of a conic section is the chord (line segment) that passes through the focus, is perpendicular to the major axis and has both endpoints on the curve.
+\end{definition}
+\begin{theorem}
+For a hyperbola, the length of latus rectum (LLR) is given by
+\begin{align}
+    \label{eq:LLR}
+        LLR=\dfrac{2\brak{\dfrac{f-\vec{u}^{\top}\vec{V}^{-1}\vec{u}}{\lambda_2}}}{\sqrt{\dfrac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_1}}}
+\end{align}
+\end{theorem}
 Given, length of latus rectum is 36 and
 \begin{align}
     \vec{F} =\myvec{0\\ 12}\Rightarrow\norm{\vec{F}}=12
 \end{align}
-Let $\vec{u}^{\top}\vec{V}^{-1}\vec{u}-f=\alpha$. From \eqref{eq:ab},\eqref{eq:e} 
+Let $\vec{u}^{\top}\vec{V}^{-1}\vec{u}-f=\alpha$. From \eqref{eq:ab},\eqref{eq:e},\eqref{eq:LLR}
 \begin{align}
-    \sqrt{\frac{\alpha}{\lambda_1}}\sqrt{1-\frac{\lambda_1}{\lambda_2}}=12\label{eq:one}\\
+    \sqrt{\dfrac{\alpha}{\lambda_1}}\sqrt{1-\frac{\lambda_1}{\lambda_2}}=12\label{eq:one}\\
     \dfrac{2\brak{\dfrac{-\alpha}{\lambda_2}}}{\sqrt{\dfrac{\alpha}{\lambda_1}}}=36\label{eq:two}
 \end{align}
 Dividing \eqref{eq:one} by \eqref{eq:two} gives
 \begin{align}
     \dfrac{\lambda_1}{\lambda_2}&=-3\\
-    \Rightarrow e&=2\\
-    \Rightarrow \sqrt{\frac{\alpha}{\lambda_1}}&=6
+    \Rightarrow e&=2\label{eq:q}\\
+    \Rightarrow \sqrt{\frac{\alpha}{\lambda_1}}&=6\label{eq:w}
 \end{align}
-The directrix of this hyperbola passes through the point $\myvec{0\\3}$ and is perpendicular to the y-axis. 
+The directrix of this hyperbola is perpendicular to the y-axis and passes through the point
+\begin{align}
+\myvec{0\\\sqrt{\dfrac{\alpha}{e^2\lambda_1}}}=\myvec{0\\3}
+\end{align}
+Hence, its equation is
 \begin{align}
     \myvec{0&1}\brak{\vec{x}-\myvec{0\\3}} = 0\\
     \implies \myvec{0&1}\vec{x} = 3
