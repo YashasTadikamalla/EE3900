@@ -168,9 +168,9 @@ For any real c, if $x[n]=\delta[n-c]$, then
 \begin{corollary}
 For any real c, if $X(\Omega)=e^{-j\Omega c}$, then $x[n]=\delta[n-c]$
 \end{corollary}
-\begin{theorem}[Convolution theorem]If $y[n]=x_1[n]*x_2[n]$, then the DTFT of $y[n]$ can be given by
+\begin{theorem}[Convolution theorem]If $x[n]=x_1[n]*x_2[n]$, then the DTFT of $x[n]$ can be given by
 \begin{align}
-    Y(\Omega)=X_1(\Omega)X_2(\Omega)\label{eq:con}
+    X(\Omega)=X_1(\Omega)X_2(\Omega)\label{eq:con}
 \end{align}
 \end{theorem}
 \begin{theorem}For a cascade system, the overall impulse response is given by
@@ -182,19 +182,20 @@ For any real c, if $X(\Omega)=e^{-j\Omega c}$, then $x[n]=\delta[n-c]$
 Given, two impulse responses $h_1[n],h_2[n]$ in cascade. The output signal $y[n]$ for the input signal $x[n]$ is given by
 \begin{align}
     y[n]&=h_2[n]*\brak{h_1[n]*x}\\
+    &=\brak{h_2[n]*h_1[n]}*x[n]\\
     &=\brak{h_1[n]*h_2[n]}*x[n]\\
     &=h[n]*x[n]
 \end{align}
-where, $h[n]=h_1[n]*h_2[n]$ is the overall impulse response. (Convolution is associative)
+$h[n]=h_1[n]*h_2[n]$ is overall impulse response. (Convolution is associative and commutative)
 \end{proof}
 Given,
 \begin{align}
-    h_1(t)=\delta[n-1]\\
-    h_2(t)=\delta[n-2]
+    h_1[n]=\delta[n-1]\\
+    h_2[n]=\delta[n-2]
 \end{align}
 To find: $h(t)$. We know, 
 \begin{align}
-h(t)=h_1(t)*h_2(t)
+h[n]=h_1[n]*h_2[n]
 \end{align}
 From \eqref{eq:con}
 \begin{align}
@@ -209,19 +210,19 @@ Option 3 is the correct answer.
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\columnwidth]{GateAssignment2(1).png}
- \caption{Plot of $h_1(t)=\delta[n-1]$}
+ \caption{Plot of $h_1[n]=\delta[n-1]$}
  \label{plot}
 \end{figure}
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\columnwidth]{GateAssignment2(2).png}
- \caption{Plot of $h_2(t)=\delta[n-2]$}
+ \caption{Plot of $h_2[n]=\delta[n-2]$}
  \label{plot}
 \end{figure}
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\columnwidth]{GateAssignment2(3).png}
- \caption{Plot of $h(t)=\delta[n-3]$}
+ \caption{Plot of $h[n]=\delta[n-3]$}
  \label{plot}
 \end{figure}
 
