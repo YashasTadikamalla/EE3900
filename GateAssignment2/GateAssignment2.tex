@@ -207,6 +207,16 @@ H(\Omega)&=e^{-j\Omega}e^{-2j\Omega}=e^{-3j\Omega}\\
 \Rightarrow h[n]&=\delta[n-3]
 \end{align}
 Option 3 is the correct answer.
+\begin{theorem}
+If $y[n]=x[n]*\delta[n-n_0]$, then $y[n]=x[n-n_0]$
+\end{theorem}
+\begin{proof}
+\begin{align}
+    y[n]&=x[n]*\delta[n-n_0]\\
+    &=\displaystyle\sum_{k=-\infty}^{\infty} x[k]\delta[n-n_0-k]\\
+    &=x[n-n_0]
+\end{align}
+\end{proof}
 \begin{figure}[!h]
  \centering
  \includegraphics[width=\columnwidth]{GateAssignment2(1).png}
@@ -225,8 +235,6 @@ Option 3 is the correct answer.
  \caption{Plot of $h[n]=\delta[n-3]$}
  \label{plot}
 \end{figure}
-
-
 \end{document}
 
 
