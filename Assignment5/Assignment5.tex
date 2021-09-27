@@ -155,10 +155,20 @@ f &= \norm{\vec{n}}^2\norm{\vec{F}}^2-c^2e^2
 For $\abs{\vec{V}}>0$, the equation represents an ellipse, while for $\abs{\vec{V}}<0$, the equation represents a hyperbola.
 \end{theorem}
 \begin{theorem}
-The eccentricity of the conic represented by \eqref{eq:conic_quad_form} is given by
+The eccentricity of the conic in \eqref{eq:conic_quad_form} is given by
 \begin{align}
 e= \sqrt{1-\frac{\lambda_1}{\lambda_2}}
 \label{eq:e}
+\end{align}
+\end{theorem}
+\begin{definition}[Latus rectum]
+The latus rectum of a conic section is the chord (line segment) that passes through the focus, is perpendicular to the major axis and has both endpoints on the curve.
+\end{definition}
+\begin{theorem}
+The equation latus rectum of the conic in \eqref{eq:conic_quad_form} is given by
+\begin{align}
+    \vec{n}^{\top}\brak{\vec{x}-\vec{F}} = 0
+    \label{eq:lreq}
 \end{align}
 \end{theorem}
 \begin{theorem}
@@ -169,9 +179,6 @@ For $\abs{\vec{V}} \ne 0$, the lengths of the semi-major and semi-minor axes of 
 \label{eq:ab}
 \end{align} 
 \end{theorem}
-\begin{definition}[Latus rectum]
-The latus rectum of a conic section is the chord (line segment) that passes through the focus, is perpendicular to the major axis and has both endpoints on the curve.
-\end{definition}
 \begin{theorem}
 For $\abs{\vec{V}} \ne 0$, the length of latus rectum (LLR) of the conic in \eqref{eq:conic_quad_form} is given by 
 \begin{align} 
@@ -179,7 +186,7 @@ For $\abs{\vec{V}} \ne 0$, the length of latus rectum (LLR) of the conic in \eqr
 \label{eq:LLR}
 \end{align} 
 \end{theorem}
-Given, length of latus rectum is 36 and
+Given, length of latus rectum is 36 and focii are $\myvec{0\\ \pm12}$. Let us consider $\myvec{0\\ 12}$ for solving the problem.
 \begin{align}
     \vec{F} =\myvec{0\\ 12}\Rightarrow\norm{\vec{F}}=12
 \end{align}
@@ -194,14 +201,14 @@ Dividing \eqref{eq:one} by \eqref{eq:two} gives
     \Rightarrow e&=2\label{eq:q}\\
     \Rightarrow \sqrt{\frac{\alpha}{\lambda_1}}&=6\label{eq:w}
 \end{align}
-The directrix of this hyperbola is perpendicular to the y-axis and passes through the point
+The associated directrix is perpendicular to the y-axis and passes through the point
 \begin{align}
 \myvec{0\\\sqrt{\dfrac{\alpha}{e^2\lambda_1}}}=\myvec{0\\3}
 \end{align}
 Hence, its equation is
 \begin{align}
-    \myvec{0&1}\brak{\vec{x}-\myvec{0\\3}} = 0\\
-    \implies \myvec{0&1}\vec{x} = 3
+    \myvec{0&1}\brak{\vec{x}-\myvec{0\\3}} &= 0\\
+    \Rightarrow \myvec{0&1}\vec{x} &= 3
 \end{align}
 Comparing it with $\vec{n}^{\top}\vec{x} = c$
 \begin{align}
@@ -217,6 +224,16 @@ Calculating $\vec{V}, \vec{u}$ and $f$,
 Hence, the required equation is
 \begin{align}
     \vec{x}^{\top}\myvec{1&0\\0&-3}\vec{x}+108=0
+\end{align}
+Also, from \eqref{eq:lreq}, the equations of latus rectum is
+\begin{align}
+    \myvec{0&1}\brak{\vec{x}-\myvec{0\\12}} &= 0\\
+    \Rightarrow \myvec{0&1}\vec{x} &= 12
+\end{align}
+Similarly, the equations of directrix and latus rectum associated with $\myvec{0\\ -12}$ are given by
+\begin{align}
+    \myvec{0&1}\vec{x} &= -3\\
+    \myvec{0&1}\vec{x} &= -12
 \end{align}
 \begin{figure}[!h]
  \centering
