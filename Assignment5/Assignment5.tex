@@ -152,6 +152,7 @@ where
 \label{eq:conic_quad_form_f}
 f &= \norm{\vec{n}}^2\norm{\vec{F}}^2-c^2e^2
 \end{align}
+For $\abs{\vec{V}}>0$, the equation represents an ellipse, while for $\abs{\vec{V}}<0$, the equation represents a hyperbola.
 \end{theorem}
 \begin{theorem}
 The eccentricity of the conic represented by \eqref{eq:conic_quad_form} is given by
@@ -161,23 +162,22 @@ e= \sqrt{1-\frac{\lambda_1}{\lambda_2}}
 \end{align}
 \end{theorem}
 \begin{theorem}
-If \eqref{eq:conic_quad_form} represents a hyperbola, the lengths of the semi-major and semi-minor axes are given by
-\begin{align}
+For $\abs{\vec{V}} \ne 0$, the lengths of the semi-major and semi-minor axes of the conic in \eqref{eq:conic_quad_form} are given by 
+\begin{align} 
 \sqrt{\frac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_1}}, 
-       \sqrt{\frac{f-\vec{u}^{\top}\vec{V}^{-1}\vec{u}}{\lambda_2}}
-       \label{eq:ab}
-\end{align}
-respectively, where $\lambda_1>0,\lambda_2<0$
+\sqrt{\bigg | \frac{f-\vec{u}^{\top}\vec{V}^{-1}\vec{u}}{\lambda_2}\bigg | }
+\label{eq:ab}
+\end{align} 
 \end{theorem}
 \begin{definition}[Latus rectum]
 The latus rectum of a conic section is the chord (line segment) that passes through the focus, is perpendicular to the major axis and has both endpoints on the curve.
 \end{definition}
 \begin{theorem}
-For a hyperbola, the length of latus rectum (LLR) is given by
-\begin{align}
-    \label{eq:LLR}
-        LLR=\dfrac{2\brak{\dfrac{f-\vec{u}^{\top}\vec{V}^{-1}\vec{u}}{\lambda_2}}}{\sqrt{\dfrac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_1}}}
-\end{align}
+For $\abs{\vec{V}} \ne 0$, the length of latus rectum (LLR) of the conic in \eqref{eq:conic_quad_form} is given by 
+\begin{align} 
+\dfrac{2\bigg | \dfrac{f-\vec{u}^{\top}\vec{V}^{-1}\vec{u}}{\lambda_2}\bigg | }{{\sqrt{\dfrac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_1}}}}
+\label{eq:LLR}
+\end{align} 
 \end{theorem}
 Given, length of latus rectum is 36 and
 \begin{align}
