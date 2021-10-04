@@ -135,7 +135,7 @@ and latex-tikz codes from
 https://github.com/YashasTadikamalla/EE3900/blob/main/Assignment5/Assignment5.tex
 \end{lstlisting}
 \section{Problem (Quadratic Forms Q2.31)}
-Find the equation of hyperbola with focii \myvec{0\\\pm12} and length of latus rectum 36.
+Find the equation of hyperbola with foci \myvec{0\\\pm12} and length of latus rectum 36.
 \section{Solution}
 \begin{theorem}
 The equation of a conic with directrix $\vec{n}^{\top}\vec{x} = c$, eccentricity $e$ and focus $\vec{F}$ is given by 
@@ -155,6 +155,12 @@ f &= \norm{\vec{n}}^2\norm{\vec{F}}^2-c^2e^2
 For $\abs{\vec{V}}>0$, the equation represents an ellipse, while for $\abs{\vec{V}}<0$, the equation represents a hyperbola.
 \end{theorem}
 \begin{theorem}
+For $\abs{\vec{V}} \ne 0$ the equations of minor and major axes of the conic in \eqref{eq:conic_quad_form} are given by
+\begin{align}
+    \vec{p_i}^{\top}(\vec{x}-\vec{c})&=0,i=1,2\label{eq:minmaj}
+\end{align}
+\end{theorem}
+\begin{theorem}
 The eccentricity of the conic in \eqref{eq:conic_quad_form} is given by
 \begin{align}
 e= \sqrt{1-\frac{\lambda_1}{\lambda_2}}
@@ -172,20 +178,45 @@ The equation latus rectum of the conic in \eqref{eq:conic_quad_form} is given by
 \end{align}
 \end{theorem}
 \begin{theorem}
-For $\abs{\vec{V}} \ne 0$, the lengths of the semi-major and semi-minor axes of the conic in \eqref{eq:conic_quad_form} are given by 
+For $\abs{\vec{V}} \ne 0$, the lengths of semi-major and semi-minor axes of the conic in \eqref{eq:conic_quad_form} are 
 \begin{align} 
 \sqrt{\frac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_1}}, 
 \sqrt{\bigg | \frac{f-\vec{u}^{\top}\vec{V}^{-1}\vec{u}}{\lambda_2}\bigg | }
 \label{eq:ab}
 \end{align} 
 \end{theorem}
+% \begin{theorem}
+% For $\abs{\vec{V}} \ne 0$ the foci of the conic in \eqref{eq:conic_quad_form} are given by
+% \begin{align}
+%   \vec{F} &=\vec{c}\pm\brak{\sqrt{\frac{(\vec{u}^T\vec{V}^{-1}\vec{u}-f)(\lambda_2-\lambda_1)}{\lambda_1\lambda_2}}}\vec{p_1} \label{eq:foci}
+% \end{align}
+% \end{theorem}
 \begin{theorem}
 For $\abs{\vec{V}} \ne 0$, the length of latus rectum (LLR) of the conic in \eqref{eq:conic_quad_form} is given by 
 \begin{align} 
-\dfrac{2\bigg | \dfrac{f-\vec{u}^{\top}\vec{V}^{-1}\vec{u}}{\lambda_2}\bigg | }{{\sqrt{\dfrac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_1}}}}
+LLR=\dfrac{2\bigg | \dfrac{f-\vec{u}^{\top}\vec{V}^{-1}\vec{u}}{\lambda_2}\bigg | }{{\sqrt{\dfrac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_1}}}}
 \label{eq:LLR}
 \end{align} 
 \end{theorem}
+\begin{proof}
+Using \eqref{eq:ab}, we can write
+\begin{align}
+  \vec{F} &=\vec{c}\pm\brak{\sqrt{\frac{(\vec{u}^T\vec{V}^{-1}\vec{u}-f)(\lambda_2-\lambda_1)}{\lambda_1\lambda_2}}}\vec{p_1} \label{eq:foci}
+\end{align}
+Also, we know, for $\abs{\vec{V}} \ne 0$,
+\begin{align}
+    \vec{n}=\sqrt{\lambda_2}\vec{p_1} \label{eq:conv}\\
+    \Rightarrow \vec{p_1}^{\top}\brak{\vec{x}-\vec{F}} = 0
+\end{align}
+is the equation of latus rectum. Solving this with \eqref{eq:conic_quad_form} and simplifying, we get 
+\begin{align}
+    \vec{H}=\vec{F}\pm\sqrt{\lambda_1\brak{ \dfrac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_2^2}}} \vec{p_2}
+\end{align}
+as the points of intersection. Hence, the length of line segment is
+\begin{align}
+    LLR=\bigg |\bigg |2\sqrt{\lambda_1\brak{ \dfrac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_2^2}}} \vec{p_2}\bigg |\bigg |=\dfrac{2\bigg | \dfrac{f-\vec{u}^{\top}\vec{V}^{-1}\vec{u}}{\lambda_2}\bigg | }{{\sqrt{\dfrac{\vec{u}^{\top}\vec{V}^{-1}\vec{u} -f}{\lambda_1}}}}
+\end{align}
+\end{proof}
 Given, length of latus rectum is 36 and focii are $\myvec{0\\ \pm12}$. Let us consider $\myvec{0\\ 12}$ for solving the problem.
 \begin{align}
     \vec{F} =\myvec{0\\ 12}\Rightarrow\norm{\vec{F}}=12
