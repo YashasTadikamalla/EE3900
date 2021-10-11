@@ -185,7 +185,78 @@ Given,
 \end{align}
 represent the same system. Hence, using \eqref{eq:th1} and \eqref{eq:th2}, we can conclude that
 $$[\lambda]=[\mu] \text{ and } X\neq W$$
-Hence, option 2 is the correct answer.
+Hence, option 2 is the correct answer.\\
+Let us now look at a numerical example to establish the correctness of the obtained result. Consider a SISO LTI system of order 2, represented by the equations
+\begin{align}
+    \dot x_1(t)&=-x_1(t)+1.5x_2(t)+2u(t)\\
+    \dot x_2(t)&=4x_1(t)+u(t)\\
+    y(t)&=1.5x_1(t)+0.625x_2(t)+u(t)
+\end{align}
+Its state space representation can be given by \eqref{eq:org}, where
+\begin{align}
+    X=\begin{bmatrix}
+    x_1(t)\\x_2(t)
+    \end{bmatrix},Y=y(t)\\
+    \dot X=\begin{bmatrix}
+    \dot x_1(t)\\\dot x_2(t)
+    \end{bmatrix},U=u(t)\\
+    A=\begin{bmatrix}
+    -1 & 1.5\\
+    4 & 0
+    \end{bmatrix},B=\begin{bmatrix}
+    2\\
+    1
+    \end{bmatrix}\\
+    C=\begin{bmatrix}
+    1.5 & 0.625
+    \end{bmatrix},D=1
+\end{align}
+The eigen values for this state representation are
+\begin{align}
+    det(\lambda I-A)&=0\\
+    \begin{vmatrix}
+    \lambda+1 & -1.5\\
+    -4 & \lambda
+    \end{vmatrix}&=0\\
+    \lambda^2+\lambda-6&=0\\
+    [\lambda]&=\{-3,2\}
+\end{align}
+Even if we swap the equations, they still should represent the same system. So, consider a different state space representation, 
+\begin{align}
+    W=\begin{bmatrix}
+    x_2(t)\\x_1(t)
+    \end{bmatrix},Y=y(t)\\
+    \dot W=\begin{bmatrix}
+    \dot x_2(t)\\\dot x_1(t)
+    \end{bmatrix},U=u(t)
+\end{align}
+Clearly, $X\neq W$ and $W=TX$, where $T=\begin{bmatrix}
+0 & 1\\
+1 & 0
+\end{bmatrix}$. From \eqref{eq:th1}
+\begin{align}
+    \bar A=\begin{bmatrix}
+    0 & 4\\
+    1.5 & -1
+    \end{bmatrix},\bar B=\begin{bmatrix}
+    1\\
+    2
+    \end{bmatrix}\\
+    \bar C=\begin{bmatrix}
+    0.625 & 1.5
+    \end{bmatrix},\bar D=1
+\end{align}
+Also, the eigen values for this state representation are
+\begin{align}
+    det(\mu I-A)&=0\\
+    \begin{vmatrix}
+    \mu & -4\\
+    -1.5 & \mu+1
+    \end{vmatrix}&=0\\
+    \mu^2+\mu-6&=0\\
+    [\mu]&=\{-3,2\}
+\end{align}
+Hence, both the state space representations are equivalent, and satisfy $[\lambda]=[\mu] \text{ and } X\neq W$.
 \end{document}
 
 
