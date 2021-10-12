@@ -145,8 +145,22 @@ Eigenvalues of the representations are also computed as $[\lambda]$ and $[\mu]$.
     \item $[\lambda]\neq[\mu]$ and $X\neq W$
 \end{enumerate}
 \section{Solution}
+\begin{definition}[State Space representation]
+It is a mathematical model of a physical system, as a set of input, output and state variables related by first order difference or differential equations. The most general state-representation of a linear system with p inputs, q outputs, and n state variables can be written as
+\begin{align}
+    \dot X(t)&=A(t)X(t)+B(t)U(t)\\
+    Y(t)&=C(t)X(t)+D(t)U(t)
+\end{align}
+where, X(.) is the state vector, Y(.) is the output vector, u(.) is input vector, A(.) is the state matrix, B(.) is input matrix, C(.) is output matrix, D(.) is feedthrough matrix.
+\end{definition}
+\begin{definition}[Eigen values of State Space representation] 
+Eigen values of a given State Space representation refer to solutions of the charecteristic equation
+\begin{align}
+    \triangle(\lambda)=det(\lambda I-A)
+\end{align}
+\end{definition}
 \begin{theorem}
-Consider the n-dimensional continuous time LTI system
+Consider the n-dimensional continuous time linear system
 \begin{align}
     \dot X=AX+BU \text{ and } Y=CX+DU
     \label{eq:org}
