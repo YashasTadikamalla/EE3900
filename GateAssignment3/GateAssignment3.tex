@@ -146,18 +146,19 @@ Eigenvalues of the representations are also computed as $[\lambda]$ and $[\mu]$.
 \end{enumerate}
 \section{Solution}
 \begin{definition}[State Space representation]
-It is a mathematical model of a physical system, as a set of input, output and state variables related by first order difference or differential equations. The most general state-representation of a linear system with p inputs, q outputs, and n state variables can be written as
+It is a mathematical model of a physical system, as a set of input, output and state variables related by first order difference or differential equations. The most general state representation of a linear system with p inputs, q outputs, and n state variables can be written as
 \begin{align}
-    \dot X(t)&=A(t)X(t)+B(t)U(t)\\
-    Y(t)&=C(t)X(t)+D(t)U(t)
+    \dot X&=AX+BU\\
+    Y&=CX+DU
 \end{align}
-where, X(.) is the state vector, Y(.) is the output vector, u(.) is input vector, A(.) is the state matrix, B(.) is input matrix, C(.) is output matrix, D(.) is feedthrough matrix.
+where, $X\in R^n$ is the state vector, $Y\in R^q$ is the output vector, $U\in R^p$ is input vector, $A\in R^{n\times n}$ is the state matrix, $B\in R^{n\times p}$ is input matrix, $C\in R^{q\times n}$ is output matrix, $D\in R^{q\times p}$ is feedthrough matrix.
 \end{definition}
 \begin{definition}[Eigen values of State Space representation] 
-Eigen values of a given State Space representation refer to solutions of the charecteristic equation
+These are the solutions of the charecteristic equation
 \begin{align}
     \triangle(\lambda)=det(\lambda I-A)
 \end{align}
+where A is the state matrix. 
 \end{definition}
 \begin{theorem}
 Consider the n-dimensional continuous time linear system
@@ -199,7 +200,9 @@ Given,
 \end{align}
 represent the same system. Hence, using \eqref{eq:th1} and \eqref{eq:th2}, we can conclude that
 $$[\lambda]=[\mu] \text{ and } X\neq W$$
-Hence, option 2 is the correct answer.\\
+Hence, option 2 is the correct answer.
+
+
 Let us now look at a numerical example to establish the correctness of the obtained result. Consider a SISO LTI system of order 2, represented by the equations
 \begin{align}
     \dot x_1(t)&=-x_1(t)+1.5x_2(t)+2u(t)\\
