@@ -1,78 +1,28 @@
-\documentclass[journal,12pt,twocolumn]{IEEEtran}
-
-\usepackage{setspace}
-\usepackage{gensymb}
-\singlespacing
-\usepackage[cmex10]{amsmath}
-
-\usepackage{amsthm}
-
-\usepackage{mathrsfs}
-\usepackage{txfonts}
-\usepackage{stfloats}
-\usepackage{bm}
-\usepackage{cite}
-\usepackage{cases}
-\usepackage{subfig}
-
-\usepackage{longtable}
-\usepackage{multirow}
-
-\usepackage{enumitem}
-\usepackage{mathtools}
-\usepackage{steinmetz}
-\usepackage{tikz}
-\usepackage{circuitikz}
-\usepackage{verbatim}
-\usepackage{tfrupee}
-\usepackage[breaklinks=true]{hyperref}
-\usepackage{graphicx}
-\usepackage{tkz-euclide}
-
-\usetikzlibrary{calc,math}
+\documentclass{beamer}
 \usepackage{listings}
-    \usepackage{color}                                            %%
-    \usepackage{array}                                            %%
-    \usepackage{longtable}                                        %%
-    \usepackage{calc}                                             %%
-    \usepackage{multirow}                                         %%
-    \usepackage{hhline}                                           %%
-    \usepackage{ifthen}                                           %%
-    \usepackage{lscape}     
-\usepackage{multicol}
-\usepackage{chngcntr}
-
-\DeclareMathOperator*{\Res}{Res}
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{definition}{Definition}[section]
-\renewcommand\thesection{\arabic{section}}
-\renewcommand\thesubsection{\thesection.\arabic{subsection}}
-\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
-
-\renewcommand\thesectiondis{\arabic{section}}
-\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
-\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
-
-
-\hyphenation{op-tical net-works semi-conduc-tor}
-\def\inputGnumericTable{}                                 %%
-
 \lstset{
 %language=C,
 frame=single, 
 breaklines=true,
 columns=fullflexible
 }
-\begin{document}
-
-\newcommand{\BEQA}{\begin{eqnarray}}
-\newcommand{\EEQA}{\end{eqnarray}}
-\newcommand{\define}{\stackrel{\triangle}{=}}
-\bibliographystyle{IEEEtran}
-\raggedbottom
-\setlength{\parindent}{0pt}
+\usepackage{gensymb}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{tikz}
+\usepackage{tkz-euclide} % loads  TikZ and tkz-base
+%\usetkzobj{all}
+\usetikzlibrary{calc,math}
+\usepackage{float}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\newcommand\norm[1]{\left\lVert#1\right\rVert}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\providecommand{\abs}[1]{\vert#1\vert}
+\usepackage[export]{adjustbox}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\newtheorem*{remark}{Remark}
 \providecommand{\mbf}{\mathbf}
 \providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
 \providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
@@ -85,56 +35,20 @@ columns=fullflexible
 \providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
 \providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
 \providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
-\theoremstyle{remark}
-\newtheorem{rem}{Remark}
-\newtheorem*{remark}{Remark}
-\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
-\providecommand{\abs}[1]{\vert#1\vert}
-\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
-\providecommand{\norm}[1]{\lVert#1\rVert}
-%\providecommand{\norm}[1]{\lVert#1\rVert}
-\providecommand{\mtx}[1]{\mathbf{#1}}
-\providecommand{\mean}[1]{E[ #1 ]}
-\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
-%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
-\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
-	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
-\newcommand{\solution}{\noindent \textbf{Solution: }}
-\newcommand{\cosec}{\,\text{cosec}\,}
-\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
-\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
-\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
-\numberwithin{equation}{subsection}
-\makeatletter
-\@addtoreset{figure}{problem}
-\makeatother
-\let\StandardTheFigure\thefigure
-\let\vec\mathbf
-\renewcommand{\thefigure}{\theproblem}
-\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
-     \def\rightbox#1{\makebox[0in][r]{#1}}
-     \def\centbox#1{\makebox[0in]{#1}}
-     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
-     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
-\vspace{3cm}
-\title{Gate Assignment 3}
-\author{Yashas Tadikamalla - AI20BTECH11027}
-\maketitle
-\newpage
-\bigskip
-\renewcommand{\thefigure}{\theenumi}
-\renewcommand{\thetable}{\theenumi}
-Download all python codes from 
-\begin{lstlisting}
-https://github.com/YashasTadikamalla/EE3900/blob/main/GateAssignment3/codes
-\end{lstlisting}
-%
-and latex-tikz codes from 
-%
-\begin{lstlisting}
-https://github.com/YashasTadikamalla/EE3900/blob/main/GateAssignment3/GateAssignment3.tex
-\end{lstlisting}
-\section{Problem (EC-2005 Q25)}
+\usetheme{Boadilla}
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+
+\title{Gate Assignment 3 Presentation}
+\author{Yashas Tadikamalla}
+\date{AI20BTECH11027}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+\begin{frame}
+\frametitle{Question}
+\begin{block}{Problem (EC-2005 Q25)}
 A linear system is equivalently represented by two sets of state equations:
 $$\dot X=AX+BU \text{ and } \dot W=CW+DU$$
 Eigenvalues of the representations are also computed as $[\lambda]$ and $[\mu]$. Which of the following is true?
@@ -144,7 +58,11 @@ Eigenvalues of the representations are also computed as $[\lambda]$ and $[\mu]$.
     \item $[\lambda]\neq [\mu]$ and $X=W$
     \item $[\lambda]\neq[\mu]$ and $X\neq W$
 \end{enumerate}
-\section{Solution}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Few prerequisites}
 \begin{definition}[State Space representation]
 It is a mathematical model of a physical system, as a set of input, output and state variables related by first order difference or differential equations. The most general state representation of a linear system with p inputs, q outputs, and n state variables can be written as
 \begin{align}
@@ -153,6 +71,10 @@ It is a mathematical model of a physical system, as a set of input, output and s
 \end{align}
 where, $X\in R^n$ is the state vector, $Y\in R^q$ is the output vector, $U\in R^p$ is input vector, $A\in R^{n\times n}$ is the state matrix, $B\in R^{n\times p}$ is input matrix, $C\in R^{q\times n}$ is output matrix, $D\in R^{q\times p}$ is feedthrough matrix.
 \end{definition}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
 \begin{definition}[Eigen values of State Space representation] 
 These are the solutions of the charecteristic equation
 \begin{align}
@@ -166,14 +88,18 @@ Consider the n-dimensional continuous time linear system
     \dot X=AX+BU, Y=CX+DU
     \label{eq:org}
 \end{align}
-Let $T$ be an $n\times n$ real non-singular matrix and let $\bar X= TX$. Then the state equation 
+Let $T$ be $n\times n$ real non-singular matrix and let $\bar X= TX$. Then the state equation 
 \begin{align}
     \dot{\bar X}=\bar A\bar X+ \bar BU, Y=\bar C\bar X+\bar DU
     \label{eq:new}
 \end{align}
-where $\bar A=TAT^{-1}, \bar B=TB, \bar C=CT^{-1}, \bar D=D$ is said to be equivalent to \eqref{eq:org}.
+where $\bar A=TAT^{-1}, \bar B=TB, \bar C=CT^{-1}, \bar D=D$ is equivalent to \eqref{eq:org}.
 \label{eq:th1}
 \end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
 \begin{proof}
 Given, $\dot X=AX+BU \text{ and } Y=CX+DU$, $T$ is a non-singular matrix such that $\bar X= TX$. The same system can be defined using $\bar X$ as the state,
 \begin{align}
@@ -186,6 +112,10 @@ Given, $\dot X=AX+BU \text{ and } Y=CX+DU$, $T$ is a non-singular matrix such th
 Equivalent state space representations have same set of eigen values
 \label{eq:th2}
 \end{theorem}
+\end{frame}
+
+\begin{frame}
+\frametitle{}
 \begin{proof}
 For the representation in \eqref{eq:org}, the eigen values [$\lambda$] are such that
 \begin{align}
@@ -203,6 +133,10 @@ For the representation in \eqref{eq:new}, the eigen values [$\mu$], are such tha
 \end{align}
 Hence, equivalent state space representations have same set of eigen values.
 \end{proof}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution}
 Given,
 \begin{align}
     \dot X&=AX+BU \\
@@ -214,14 +148,20 @@ where T need not be identity matrix.
 
 
 Hence, option 2 is the correct answer.
+\end{frame}
 
-
+\begin{frame}
+\frametitle{Solution Contd.}
 Let us now look at a numerical example to establish the correctness of the obtained result. Consider a SISO LTI system of order 2, represented by the equations
 \begin{align}
     \dot x_1(t)&=-x_1(t)+1.5x_2(t)+2u(t)\\
     \dot x_2(t)&=4x_1(t)+u(t)\\
     y(t)&=1.5x_1(t)+0.625x_2(t)+u(t)
 \end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Contd.}
 Its state space representation can be given by \eqref{eq:org}, where
 \begin{align}
     X=\begin{bmatrix}
@@ -251,6 +191,10 @@ The eigen values for this state representation are
     \lambda^2+\lambda-6&=0\\
     [\lambda]&=\{-3,2\}
 \end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Contd.}
 Even if we swap the equations, they still should represent the same system. So, consider a different state space representation, 
 \begin{align}
     W=\begin{bmatrix}
@@ -276,6 +220,10 @@ Clearly, $X\neq W$ and $W=TX$, where $T=\begin{bmatrix}
     0.625 & 1.5
     \end{bmatrix},\bar D=1
 \end{align}
+\end{frame}
+
+\begin{frame}
+\frametitle{Solution Contd.}
 Also, the eigen values for this state representation are
 \begin{align}
     det(\mu I-A)&=0\\
@@ -287,6 +235,5 @@ Also, the eigen values for this state representation are
     [\mu]&=\{-3,2\}
 \end{align}
 Hence, both the state space representations are equivalent, and satisfy $[\lambda]=[\mu] \text{ and } W=TX$, where T need not be identity matrix.
+\end{frame}
 \end{document}
-
-
