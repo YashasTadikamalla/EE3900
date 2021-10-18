@@ -136,50 +136,50 @@ https://github.com/YashasTadikamalla/EE3900/blob/main/GateAssignment3/GateAssign
 \end{lstlisting}
 \section{Problem (EC-2005 Q25)}
 A linear system is equivalently represented by two sets of state equations:
-$$\dot X=AX+BU \text{ and } \dot W=CW+DU$$
+$$\vec{\dot X}=\vec{A}\vec{X}+\vec{B}\vec{U} \text{ and } \vec{\dot W}=\vec{C}\vec{W}+\vec{D}\vec{U}$$
 Eigenvalues of the representations are also computed as $[\lambda]$ and $[\mu]$. Which of the following is true?
 \begin{enumerate}
-    \item $[\lambda]=[\mu]$ and $X=W$
-    \item $[\lambda]=[\mu]$ and $X\neq W$
-    \item $[\lambda]\neq [\mu]$ and $X=W$
-    \item $[\lambda]\neq[\mu]$ and $X\neq W$
+    \item $[\lambda]=[\mu]$ and $\vec{X}=\vec{W}$
+    \item $[\lambda]=[\mu]$ and $\vec{X}\neq \vec{W}$
+    \item $[\lambda]\neq [\mu]$ and $\vec{X}=\vec{W}$
+    \item $[\lambda]\neq[\mu]$ and $\vec{X}\neq \vec{W}$
 \end{enumerate}
 \section{Solution}
 \begin{definition}[State Space representation]
 It is a mathematical model of a physical system, as a set of input, output and state variables related by first order difference or differential equations. The most general state representation of a linear system with p inputs, q outputs, and n state variables can be written as
 \begin{align}
-    \dot X&=AX+BU\\
-    Y&=CX+DU
+    \vec{\dot X}&=\vec{A}\vec{X}+\vec{B}\vec{U}\\
+    \vec{Y}&=\vec{C}\vec{X}+\vec{D}\vec{U}
 \end{align}
-where, $X\in R^n$ is the state vector, $Y\in R^q$ is the output vector, $U\in R^p$ is input vector, $A\in R^{n\times n}$ is the state matrix, $B\in R^{n\times p}$ is input matrix, $C\in R^{q\times n}$ is output matrix, $D\in R^{q\times p}$ is feedthrough matrix.
+where, $\vec{X}\in R^n$ is the state vector, $\vec{Y}\in R^q$ is the output vector, $\vec{U}\in R^p$ is input vector, $\vec{A}\in R^{n\times n}$ is the state matrix, $\vec{B}\in R^{n\times p}$ is input matrix, $\vec{C}\in R^{q\times n}$ is output matrix, $\vec{D}\in R^{q\times p}$ is feedthrough matrix.
 \end{definition}
 \begin{definition}[Eigen values of State Space representation] 
 These are the solutions of the charecteristic equation
 \begin{align}
-    \triangle(\lambda)=det(\lambda I-A)=0
+    \triangle(\lambda)=det(\lambda \vec{I}-\vec{A})=0
 \end{align}
 where A is the state matrix. 
 \end{definition}
 \begin{theorem}
 Consider the n-dimensional continuous time linear system
 \begin{align}
-    \dot X=AX+BU, Y=CX+DU
+    \vec{\dot X}=\vec{A}\vec{X}+\vec{B}\vec{U}, \vec{Y}=\vec{C}\vec{X}+\vec{D}\vec{U}
     \label{eq:org}
 \end{align}
-Let $T$ be an $n\times n$ real non-singular matrix and let $\bar X= TX$. Then the state equation 
+Let $\vec{T}$ be an $n\times n$ real non-singular matrix and let $\vec{\bar X}= \vec{T}\vec{X}$. Then the state equation 
 \begin{align}
-    \dot{\bar X}=\bar A\bar X+ \bar BU, Y=\bar C\bar X+\bar DU
+    \vec{\dot{\bar X}}=\vec{\bar A}\vec{\bar X}+ \vec{\bar B}\vec{U}, \vec{Y}=\vec{\bar C}\vec{\bar X}+\vec{\bar D}\vec{U}
     \label{eq:new}
 \end{align}
-where $\bar A=TAT^{-1}, \bar B=TB, \bar C=CT^{-1}, \bar D=D$ is said to be equivalent to \eqref{eq:org}.
+where $\vec{\bar A}=\vec{T}\vec{A}\vec{T}^{-1}, \vec{\bar B}=\vec{T}\vec{B}, \vec{\bar C}=\vec{C}\vec{T}^{-1}, \vec{\bar D}=\vec{D}$ is said to be equivalent to \eqref{eq:org}.
 \label{eq:th1}
 \end{theorem}
 \begin{proof}
-Given, $\dot X=AX+BU \text{ and } Y=CX+DU$, $T$ is a non-singular matrix such that $\bar X= TX$. The same system can be defined using $\bar X$ as the state,
+Given, $\vec{\dot X}=\vec{A}\vec{X}+\vec{B}\vec{U} \text{ and } \vec{Y}=\vec{C}\vec{X}+\vec{D}\vec{U}$, $T$ is a non-singular matrix such that $\vec{\bar X}= \vec{T}\vec{X}$. The same system can be defined using $\vec{\bar X}$ as the state,
 \begin{align}
-    \dot{\bar X}&=T\dot X=TAX+TBU\\
-    &=TAT^{-1}\bar X+TBU\\
-    Y&=CX+DU=CT^{-1}\bar X+DU
+    \vec{\dot{\bar X}}&=\vec{T}\vec{\dot X}=\vec{T}\vec{A}\vec{X}+\vec{T}\vec{B}\vec{U}\\
+    &=\vec{T}\vec{A}\vec{T}^{-1}\vec{\bar X}+\vec{T}\vec{B}\vec{U}\\
+    \vec{Y}&=\vec{C}\vec{X}+\vec{D}\vec{U}=\vec{C}\vec{T}^{-1}\vec{\bar X}+\vec{D}\vec{U}
 \end{align}
 \end{proof}
 \begin{theorem}
@@ -189,28 +189,28 @@ Equivalent state space representations have same set of eigen values
 \begin{proof}
 For the representation in \eqref{eq:org}, the eigen values [$\lambda$] are such that
 \begin{align}
-    Ax&=\lambda x\\
-    \Rightarrow(A-\lambda I)x&=0\\
-    \Rightarrow det(A-\lambda I)&=0
+    \vec{A}\vec{x}&=\lambda \vec{x}\\
+    \Rightarrow(\vec{A}-\lambda \vec{I})\vec{x}&=0\\
+    \Rightarrow det(\vec{A}-\lambda \vec{I}&=0
 \end{align}
 For the representation in \eqref{eq:new}, the eigen values [$\mu$], are such that
 \begin{align}
-    \bar Ax&=\mu x\\
-    \Rightarrow(\bar A-\mu I)x&=0\\
-    \Rightarrow(TAT^{-1}-\mu TT^{-1})x&=0\\
-    \Rightarrow det(T(A-\mu I)T^{-1})&=0\\
-    \Rightarrow det(A-\mu I)&=0
+    \vec{\bar A}\vec{x}&=\mu \vec{x}\\
+    \Rightarrow(\vec{\bar A}-\mu \vec{I})\vec{x}&=0\\
+    \Rightarrow(\vec{T}\vec{A}\vec{T}^{-1}-\mu \vec{T}\vec{T}^{-1})\vec{x}&=0\\
+    \Rightarrow det(\vec{T}(\vec{A}-\mu \vec{I})\vec{T}^{-1})&=0\\
+    \Rightarrow det(\vec{A}-\mu \vec{I})&=0
 \end{align}
 Hence, equivalent state space representations have same set of eigen values.
 \end{proof}
 Given,
 \begin{align}
-    \dot X&=AX+BU \\
-    \dot W&=CW+DU
+    \vec{\dot X}&=\vec{A}\vec{X}+\vec{B}\vec{U}\\
+    \vec{\dot W}&=\vec{C}\vec{W}+\vec{D}\vec{U}
 \end{align}
 represent the same system. Hence, using \eqref{eq:th1} and \eqref{eq:th2}, we can conclude that
-$$[\lambda]=[\mu] \text{ and } W=TX$$
-where T need not be identity matrix.
+$$[\lambda]=[\mu] \text{ and } \vec{W}=\vec{T}\vec{X}$$
+where $\vec{T}$ need not be identity matrix.
 
 
 Hence, option 2 is the correct answer.
@@ -224,26 +224,26 @@ Let us now look at a numerical example to establish the correctness of the obtai
 \end{align}
 Its state space representation can be given by \eqref{eq:org}, where
 \begin{align}
-    X=\begin{bmatrix}
+    \vec{X}=\begin{bmatrix}
     x_1(t)\\x_2(t)
-    \end{bmatrix},Y=y(t)\\
-    \dot X=\begin{bmatrix}
+    \end{bmatrix},\vec{Y}=y(t)\\
+    \vec{\dot X}=\begin{bmatrix}
     \dot x_1(t)\\\dot x_2(t)
-    \end{bmatrix},U=u(t)\\
-    A=\begin{bmatrix}
+    \end{bmatrix},\vec{U}=u(t)\\
+    \vec{A}=\begin{bmatrix}
     -1 & 1.5\\
     4 & 0
-    \end{bmatrix},B=\begin{bmatrix}
+    \end{bmatrix},\vec{B}=\begin{bmatrix}
     2\\
     1
     \end{bmatrix}\\
-    C=\begin{bmatrix}
+    \vec{C}=\begin{bmatrix}
     1.5 & 0.625
-    \end{bmatrix},D=1
+    \end{bmatrix},\vec{D}=1
 \end{align}
 The eigen values for this state representation are
 \begin{align}
-    det(\lambda I-A)&=0\\
+    det(\lambda \vec{I}-\vec{A})&=0\\
     \begin{vmatrix}
     \lambda+1 & -1.5\\
     -4 & \lambda
@@ -253,32 +253,32 @@ The eigen values for this state representation are
 \end{align}
 Even if we swap the equations, they still should represent the same system. So, consider a different state space representation, 
 \begin{align}
-    W=\begin{bmatrix}
+    \vec{W}=\begin{bmatrix}
     x_2(t)\\x_1(t)
-    \end{bmatrix},Y=y(t)\\
-    \dot W=\begin{bmatrix}
+    \end{bmatrix},\vec{Y}=y(t)\\
+    \vec{\dot W}=\begin{bmatrix}
     \dot x_2(t)\\\dot x_1(t)
-    \end{bmatrix},U=u(t)
+    \end{bmatrix},\vec{U}=u(t)
 \end{align}
-Clearly, $X\neq W$ and $W=TX$, where $T=\begin{bmatrix}
+Clearly, $\vec{X}\neq \vec{W}$ and $\vec{W}=\vec{T}\vec{X}$, where $\vec{T}=\begin{bmatrix}
 0 & 1\\
 1 & 0
 \end{bmatrix}$. From \eqref{eq:th1}
 \begin{align}
-    \bar A=\begin{bmatrix}
+    \vec{\bar A}=\begin{bmatrix}
     0 & 4\\
     1.5 & -1
-    \end{bmatrix},\bar B=\begin{bmatrix}
+    \end{bmatrix},\vec{\bar B}=\begin{bmatrix}
     1\\
     2
     \end{bmatrix}\\
-    \bar C=\begin{bmatrix}
+    \vec{\bar C}=\begin{bmatrix}
     0.625 & 1.5
-    \end{bmatrix},\bar D=1
+    \end{bmatrix},\vec{\bar D}=1
 \end{align}
 Also, the eigen values for this state representation are
 \begin{align}
-    det(\mu I-A)&=0\\
+    det(\mu \vec{I}-\vec{A})&=0\\
     \begin{vmatrix}
     \mu & -4\\
     -1.5 & \mu+1
@@ -286,7 +286,7 @@ Also, the eigen values for this state representation are
     \mu^2+\mu-6&=0\\
     [\mu]&=\{-3,2\}
 \end{align}
-Hence, both the state space representations are equivalent, and satisfy $[\lambda]=[\mu] \text{ and } W=TX$, where T need not be identity matrix.
+Hence, both the state space representations are equivalent, and satisfy $[\lambda]=[\mu] \text{ and } \vec{W}=\vec{T}\vec{X}$, where $\vec{T}$ need not be identity matrix.
 \end{document}
 
 
