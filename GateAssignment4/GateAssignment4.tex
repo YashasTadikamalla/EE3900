@@ -124,7 +124,12 @@ columns=fullflexible
 \bigskip
 \renewcommand{\thefigure}{\theenumi}
 \renewcommand{\thetable}{\theenumi}
-Download latex-tikz codes from 
+Download all python codes from 
+\begin{lstlisting}
+https://github.com/YashasTadikamalla/EE3900/blob/main/GateAssignment4/codes
+\end{lstlisting}
+%
+and latex-tikz codes from 
 %
 \begin{lstlisting}
 https://github.com/YashasTadikamalla/EE3900/blob/main/GateAssignment4/GateAssignment4.tex
@@ -143,6 +148,16 @@ A deterministic signal has the power spectrum given in the figure. The minimum s
     \item None
 \end{enumerate}
 \section{Solution}
+\begin{definition}[Normalised sinc function]
+A normalised sinc function is defined as
+\begin{align}
+    sinc(x)=\begin{cases}
+	1, & x=0 \\~\\[-1em]
+	\dfrac{sin(\pi x)}{\pi x}, & x\neq 0
+	\end{cases}
+	\label{eq:sinc}
+\end{align}
+\end{definition}
 \begin{definition}[Power spectrum]
 Power Spectral density, or simply, Power spectrum, denoted by $s(f)$ is defined as  \label{eq:def}
 \begin{align}
@@ -150,29 +165,36 @@ Power Spectral density, or simply, Power spectrum, denoted by $s(f)$ is defined 
 \end{align}
 \end{definition}
 \begin{theorem}[Sampling Theorem]
-If a continuous time signal contains no frequency components higher than W Hz, then the sampling rate at which the continuous time signal needs to be sampled uniformly, so as to completely recover the original signal is given by
+If a signal contains no frequency components above W Hz, then the sampling rate at which the continuous time signal needs to be sampled uniformly, so as to completely recover the original signal is given by
 \begin{align}
     f_s\geq2W
     \label{eq:sthm}
 \end{align}
 \end{theorem}
 \begin{definition}[Nyquist rate]
-The minimum sampling rate is also called as Nyquist rate. It is given by
+Minimum sampling rate is also called as Nyquist rate. It is given by
 \begin{align}
     f_s=2W
     \label{eq:ns}
 \end{align}
 \end{definition}
-Given, power spectrum of a deterministic signal. From \eqref{eq:def}, we can observe that no frequency component exceeds $2 KHz$. Hence,
+
+Given, power spectrum of a deterministic signal. From \eqref{eq:def}, Fourier transform of the given band limited signal is \textbf{truncated normalised sinc pulse}. As no frequency component exceeds $2 KHz$,
 \begin{align}
     W=2 KHz
 \end{align}
 From \eqref{eq:ns}, 
 \begin{align}
-    f_s&=2W\\
-    &=2(2)=4 KHz
+    f_s&=2W=4 KHz
 \end{align}
 Hence, option 4 is the correct answer.
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=\columnwidth]{GateAssignment4.png}
+ \caption{Plot of X(f)}
+ \label{plot}
+\end{figure}
 \end{document}
+
 
 
