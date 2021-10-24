@@ -165,7 +165,7 @@ Power Spectral density, or simply, Power spectrum, denoted by $s(f)$ is defined 
 \end{align}
 \end{definition}
 \begin{theorem}[Sampling Theorem]
-If a signal contains no frequency components above W Hz, then the sampling rate at which the continuous time signal needs to be sampled uniformly, so as to completely recover the original signal is given by
+If a signal contains no frequency components above W Hz, then the sampling rate at which the continuous time signal needs to be sampled uniformly, so as to completely recover the original signal is given by\label{samp}
 \begin{align}
     f_s\geq2W
     \label{eq:sthm}
@@ -188,13 +188,59 @@ From \eqref{eq:ns},
     f_s&=2W=4 KHz
 \end{align}
 Hence, option 4 is the correct answer.
+
+
+To verify the validity of \eqref{samp}, let's see what happens if we sample at a rate lower than Nyquist rate.
+
+Let our original continuous time signal be $x(t)$. Consider impulse train $x_i(t)$ given by
+\begin{align}
+    x_i(t)=\displaystyle\sum_{n=-\infty}^{\infty}\delta(t-nT_s)
+\end{align}
+where $T_s$ is the sampling period. ($f_s=\dfrac{1}{T_s}$ is the sampling frequency). The sampled signal would be
+\begin{align}
+    x_s(t)&=x(t)x_i(t)\label{eq:temp}\\
+    &=\displaystyle\sum_{n=-\infty}^{\infty}x(nT_s)\delta(t-nT_s)
+\end{align}
+Also, from \eqref{eq:temp}
+\begin{align}
+    X_s(f)&=X(f)*X_i(f)\\
+    &=\dfrac{1}{T_s}\displaystyle\sum_{k=-\infty}^{\infty}X(f-kf_s)
+\end{align}
+$X_s(f)$ consists periodically repeated copies of $X(f)$, shifted by integer multiples of $f_s$. For our example, $X(f)$ is the \textbf{truncated normalised sinc pulse}. Let $W$ be the the maximum frequency component. 
 \begin{figure}[!h]
  \centering
- \includegraphics[width=\columnwidth]{GateAssignment4.png}
+ \includegraphics[width=\columnwidth]{GateAssignment4(1).png}
  \caption{Plot of X(f)}
  \label{plot}
+ \includegraphics[width=\columnwidth]{GateAssignment4(2).png}
+ \caption{Plot of s(f)}
+ \label{plot}
 \end{figure}
-\end{document}
+\begin{itemize}
+    \item Case 1: $W>2f_s$: 
+    
+    The copies don't overlap. Hence, $x(t)$ can be recovered from $x_s(t)$ using a low pass filter.
+    \item Case 2: $W=2f_s$: 
+    
+    The copies just touch each other, but don't overlap. So, $x(t)$ can be recovered from $x_s(t)$ using a low pass filter.
+    \item Case 3: $W<2f_s$:
+    
+    As the copies overlap, they get added. So, we cannot reconstruct the original signal $x(t)$. This gives rise to situation called aliasing.
+\end{itemize}
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=\columnwidth]{GateAssignment4(3).png}
+ \caption{$W>2f_s$}
+ \label{plot}
+ \includegraphics[width=\columnwidth]{GateAssignment4(4).png}
+ \caption{$W=2f_s$}
+ \label{plot}
+ \includegraphics[width=\columnwidth]{GateAssignment4(5).png}
+ \caption{$W<2f_s$}
+ \label{plot}
+\end{figure}
 
+Hence, we need to sample at a rate higher than Nyquist rate, inorder to be able to recover the original signal.
+\end{document}
 
 
