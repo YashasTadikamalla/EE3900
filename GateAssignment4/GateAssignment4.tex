@@ -179,7 +179,36 @@ Minimum sampling rate is also called as Nyquist rate. It is given by
 \end{align}
 \end{definition}
 
-Given, power spectrum of a deterministic signal. From \eqref{eq:def}, Fourier transform of the given band limited signal is \textbf{truncated normalised sinc pulse}. As no frequency component exceeds $2 KHz$,
+Given, power spectrum of a deterministic signal. 
+\begin{align}
+    s(f)=\begin{cases}
+	sinc(f)^2, & \abs{f}\leq 2 KHz\\~\\[-1em]
+	0, & else
+	\end{cases}
+	\label{eq:sf}
+\end{align}
+From \eqref{eq:def}, Fourier transform of the given band limited signal is \textbf{truncated normalised sinc pulse}.
+\begin{align}
+    X(f)=\begin{cases}
+	sinc(f), & \abs{f}\leq 2 KHz\\~\\[-1em]
+	0, & else
+	\end{cases}
+	\label{eq:Xf}
+\end{align}
+ \begin{figure}[!h]
+ \includegraphics[width=\columnwidth]{GateAssignment4(2).png}
+ \caption{Plot of s(f)}
+ \label{plot}
+\end{figure}
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=\columnwidth]{GateAssignment4(1).png}
+ \caption{Plot of X(f)}
+ \label{plot}
+ \end{figure}
+ 
+ 
+As no frequency component exceeds $2 KHz$,
 \begin{align}
     W=2 KHz
 \end{align}
@@ -192,13 +221,17 @@ Hence, option 4 is the correct answer.
 
 To verify the validity of \eqref{samp}, let's see what happens if we sample at a rate lower than Nyquist rate.
 
-Let our original continuous time signal be $x(t)$. Consider impulse train $x_i(t)$ given by
+Let our original continuous time signal be $x(t)$. \begin{align}
+    x(t)&=\displaystyle\int_{-\infty}^{\infty}X(f)e^{2\pi ftj}df
+\end{align} 
+Consider impulse train $x_i(t)$ given by
 \begin{align}
     x_i(t)=\displaystyle\sum_{n=-\infty}^{\infty}\delta(t-nT_s)
 \end{align}
 where $T_s$ is the sampling period. ($f_s=\dfrac{1}{T_s}$ is the sampling frequency). The sampled signal would be
 \begin{align}
     x_s(t)&=x(t)x_i(t)\label{eq:temp}\\
+    &=x(t)\displaystyle\sum_{n=-\infty}^{\infty}\delta(t-nT_s)\\
     &=\displaystyle\sum_{n=-\infty}^{\infty}x(nT_s)\delta(t-nT_s)
 \end{align}
 Also, from \eqref{eq:temp}
@@ -206,23 +239,14 @@ Also, from \eqref{eq:temp}
     X_s(f)&=X(f)*X_i(f)\\
     &=\dfrac{1}{T_s}\displaystyle\sum_{k=-\infty}^{\infty}X(f-kf_s)
 \end{align}
-$X_s(f)$ consists periodically repeated copies of $X(f)$, shifted by integer multiples of $f_s$. For our example, $X(f)$ is the \textbf{truncated normalised sinc pulse}. Let $W$ be the the maximum frequency component. 
-\begin{figure}[!h]
- \centering
- \includegraphics[width=\columnwidth]{GateAssignment4(1).png}
- \caption{Plot of X(f)}
- \label{plot}
- \includegraphics[width=\columnwidth]{GateAssignment4(2).png}
- \caption{Plot of s(f)}
- \label{plot}
-\end{figure}
+$X_s(f)$ consists periodically repeated copies of $X(f)$, shifted by integer multiples of $f_s$. Let $W$ be the the maximum frequency component. 
 \begin{itemize}
     \item Case 1: $W>2f_s$: 
     
-    The copies don't overlap. Hence, $x(t)$ can be recovered from $x_s(t)$ using a low pass filter.
+    The copies don't overlap. Hence, $x(t)$ can be recovered from $x_s(t)$ using an ideal low pass filter.
     \item Case 2: $W=2f_s$: 
     
-    The copies just touch each other, but don't overlap. So, $x(t)$ can be recovered from $x_s(t)$ using a low pass filter.
+    The copies just touch each other, but don't overlap. So, $x(t)$ can be recovered from $x_s(t)$ using an ideal low pass filter.
     \item Case 3: $W<2f_s$:
     
     As the copies overlap, they get added. So, we cannot reconstruct the original signal $x(t)$. This gives rise to situation called aliasing.
@@ -232,15 +256,36 @@ $X_s(f)$ consists periodically repeated copies of $X(f)$, shifted by integer mul
  \includegraphics[width=\columnwidth]{GateAssignment4(3).png}
  \caption{$W>2f_s$}
  \label{plot}
+\end{figure}
+\begin{figure}[!h]
  \includegraphics[width=\columnwidth]{GateAssignment4(4).png}
  \caption{$W=2f_s$}
  \label{plot}
+\end{figure}
+\begin{figure}[!h]
  \includegraphics[width=\columnwidth]{GateAssignment4(5).png}
  \caption{$W<2f_s$}
  \label{plot}
 \end{figure}
 
-Hence, we need to sample at a rate greater than Nyquist rate to be able to recover the original signal.
+
+Hence, we need to sample at a rate greater than Nyquist rate to be able to recover the original signal. 
+\begin{align}
+    x(t)&=\displaystyle\int_{-2}^{2}sinc(f)e^{2\pi ftj}df
+\end{align}
+We cannot find a closed form expression for $x(t)$, but we can calculate it numerically using python.
+\begin{figure}[!h]
+ \centering
+ \includegraphics[width=\columnwidth]{GateAssignment4(6).png}
+ \caption{Plot of $\abs{x(t)}$}
+ \label{plot}
+\end{figure}
+\begin{figure}[!h]
+ \includegraphics[width=\columnwidth]{GateAssignment4(7).png}
+ \caption{Plot of $\angle x(t)$}
+ \label{plot}
+\end{figure}
+
 \end{document}
 
 
